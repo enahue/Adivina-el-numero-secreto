@@ -4,9 +4,9 @@ function asignarTextolemento(elemento, texto) {
   let elementoHtml = document.querySelector(elemento);
   elementoHtml.innerHTML = texto;
 }
-function verificarIntento() {
-  let numeroUsuario = parseInt(document.getElementById("valorUsuario").value);
-  if (numeroUsuario === numeroSecreto) {
+function intentoDeUsuario() {
+  let numero = document.querySelector("input").value;
+  if (numero == 2) {
     asignarTextolemento("p", "¡Has acertado!");
   } else {
     asignarTextolemento("p", "Intenta otra vez");
