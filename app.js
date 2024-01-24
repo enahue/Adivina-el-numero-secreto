@@ -1,14 +1,15 @@
-let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Adivina el número secreto';
 
-let mensaje = document.querySelector('p');
-mensaje.innerHTML = 'Escribe un número del 1 al 10';
-
+function asignarTextolemento(elemento, texto) {
+  let elementoHtml = document.querySelector(elemento);
+  elementoHtml.innerHTML = texto;
+}
 function intentoDeUsuario() {
-  let numero = document.querySelector('input').value;
+  let numero = document.querySelector("input").value;
   if (numero == 2) {
-    mensaje.innerHTML = '¡Has acertado!';
+    asignarTextolemento("p", "¡Has acertado!");
   } else {
-    mensaje.innerHTML = 'Intenta otra vez';
+    asignarTextolemento("p", "Intenta otra vez");
   }
 }
+asignarTextolemento("h1", "Adivina el número secreto");
+asignarTextolemento("p", "Escribe un número del 1 al 10");
