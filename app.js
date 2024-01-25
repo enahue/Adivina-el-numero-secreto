@@ -30,6 +30,7 @@ function reiniciarJuego() {
   intentos = 1;
   asignarTextolemento("p", "Escribe un número del 1 al 10");
   limpiarInput();
+  document.getElementById("reiniciar").setAttribute('disabled', true);
 }
 function generarNumeroSecreto() {
   return Math.floor(Math.random() * 10) + 1;
