@@ -15,8 +15,7 @@ function condicionesIniciales() {
   numeroSecreto = generarNumeroSecreto();
   // Inicializamos los intentos
   intentos = 1;
-  // Habilitamos el botón de intentar
-  document.getElementById("intentar").removeAttribute("disabled");
+
 }
 
 // Esta función valida el campo de entrada del usuario
@@ -81,12 +80,16 @@ function reiniciarJuego() {
 function generarNumeroSecreto() {
   // Generamos un número aleatorio entre 1 y el número máximo
   let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1;
+  console.log(numeroGenerado);
+  console.log(listaNumerosSorteados);
   // Si ya se han generado todos los números posibles, informamos al usuario
   if (listaNumerosSorteados.length == numeroMaximo) {
     asignarTextolemento("p", "No hay más números para adivinar <br> !presiona (F5) para reiniciar¡");
     document.getElementById("intentar").setAttribute("disabled", true);
     document.getElementById("reiniciar").removeAttribute("disabled");
   } else {
+    // Habilitamos el botón de intentar
+    document.getElementById("intentar").removeAttribute("disabled");
     // Si el número generado ya ha sido sorteado, generamos otro número
     if (listaNumerosSorteados.includes(numeroGenerado)) {
       return generarNumeroSecreto();
