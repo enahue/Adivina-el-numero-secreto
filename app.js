@@ -80,8 +80,6 @@ function reiniciarJuego() {
 function generarNumeroSecreto() {
   // Generamos un número aleatorio entre 1 y el número máximo
   let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1;
-  console.log(numeroGenerado);
-  console.log(listaNumerosSorteados);
   // Si ya se han generado todos los números posibles, informamos al usuario
   if (listaNumerosSorteados.length == numeroMaximo) {
     asignarTextolemento("p", "No hay más números para adivinar <br> !presiona (F5) para reiniciar¡");
