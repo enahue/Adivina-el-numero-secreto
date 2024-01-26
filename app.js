@@ -82,7 +82,7 @@ function generarNumeroSecreto() {
   let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1;
   // Si ya se han generado todos los números posibles, informamos al usuario
   if (listaNumerosSorteados.length == numeroMaximo) {
-    asignarTextolemento("p", "No hay más números para adivinar <br> !presiona (F5) para reiniciar¡");
+    asignarTextolemento("p", "No hay más números para adivinar <br> ¡presiona (F5) para reiniciar!");
     document.getElementById("intentar").setAttribute("disabled", true);
     document.getElementById("reiniciar").removeAttribute("disabled");
   } else {
