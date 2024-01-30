@@ -6,8 +6,6 @@ let numeroMaximo = 10;
 
 // Esta función establece las condiciones iniciales del juego
 function condicionesIniciales() {
-  // Validamos el campo de entrada del usuario
-  validacionDeCampo();
   // Asignamos el texto a los elementos HTML
   asignarTextolemento("h1", "Adivina el número secreto");
   asignarTextolemento("p", `Escribe un número del 1 al ${numeroMaximo}`);
@@ -18,18 +16,6 @@ function condicionesIniciales() {
 
 }
 
-// Esta función valida el campo de entrada del usuario
-function validacionDeCampo() {
-  // Obtenemos el valor del campo de entrada del usuario
-  let valorUsuario = document.getElementById("valorUsuario").value;
-  // Si el campo de entrada está vacío, mostramos un mensaje de error
-  if (valorUsuario === "" || valorUsuario === null) {
-    asignarTextolemento("p", "No has ingresado ningún número");
-  } else {
-    // Si el campo de entrada no está vacío, verificamos el intento del usuario
-    verificarIntento();
-  }
-}
 // Esta función asigna un texto a un elemento HTML
 function asignarTextolemento(elemento, texto) {
   let elementoHtml = document.querySelector(elemento);
@@ -37,8 +23,16 @@ function asignarTextolemento(elemento, texto) {
 }
 // Esta función verifica el intento del usuario
 function verificarIntento() {
+  
   // Obtenemos el número ingresado por el usuario
   let numeroUsuario = parseInt(document.getElementById("valorUsuario").value);
+  
+  // Validamos el campo de entrada del usuario
+  if (isNaN(numeroUsuario)) {
+    asignarTextolemento("p", "No has ingresado ningún número");
+    return;
+  }else{
+
   // Si el número del usuario es igual al número secreto
   if (numeroUsuario === numeroSecreto) {
     // Informamos al usuario que ha acertado y mostramos el número de intentos
@@ -62,7 +56,7 @@ function verificarIntento() {
     // Incrementamos el número de intentos y limpiamos el campo de entrada del usuario
     intentos++;
     limpiarInput();
-  }
+  }}
 }
 // Esta función limpia el campo de entrada del usuario
 function limpiarInput() {
